@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <script type="text/javascript" src="./js/jquery-min.js"></script>
+        <script type="text/javascript" src="./js/jquery-extension.js"></script>
+        <script type="text/javascript" src="./js/underscore-min.js"></script>
+        <script type="text/javascript" src="./js/backbone-min.js"></script>
+        <script type="text/javascript" src="./js/moment-min.js"></script>
+        <script type="text/javascript" src="./js/application.js"></script>
+    </head>
+    <body>
+        <div class="top orient_v">
+            <div class="title">DSFLN</div>
+            <div class="sub-title">domain searches from last night - <a href="http://twitter.com/lolmuffs">@lolmuffs</a></div>
+        </div>
+        <div class="content"></div>
+        <div class="footer"></div>
+    </body>
+    <script type="text/html" id="tweet-item">
+        <div class="user-avatar"><img src="<%= profile_image_url %>"/></div>
+        <div class="text-meta box orient_v m_ten_l">
+            <div class="text"><%= text %></div>
+            <div class="meta box orient_h">
+                <div class="author"><a href="http://twitter.com/<%= from_user %>" target="_blank">@<%= from_user %></a></div>
+                <div class="date"><%= new moment(Date.parse(created_at)).fromNow() %></div>
+            </div>
+        </div>
+    </script>
+    <script type="text/javascript" src="./js/workspace.js"></script>
+    <script type="text/javascript" src="./js/loop.view.js"></script>
+    <script type="text/javascript" src="./js/tweet.model.js"></script>
+    <script type="text/javascript" src="./js/tweet.view.js"></script>
+    <script type="text/javascript" src="./js/tweetlist.view.js"></script>
+    <script type="text/javascript" src="./js/tweets.collection.js"></script>
+    <script type="text/javascript" src="./js/workspace.js"></script>
+    <footer>
+    </footer>
+    <script type="text/javascript">
+        dsfln.routers.app = new dsfln.routers.space();
+        Backbone.history.start();
+    </script>
+</html>
